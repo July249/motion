@@ -1,6 +1,7 @@
 :root {
   /* colors */
-  --bg-clr: #000;
+  --bg-clr: #121212;
+  --app-clr: #aeaeae;
   --button-clr: #ff4a4a;
   --text-clr: #fff;
   /* font-size */
@@ -52,8 +53,12 @@ header button {
   color: var(--text-clr);
 }
 
-main {
+#app {
+  background: var(--app-clr);
+  padding: 2rem 4rem;
   margin-bottom: auto;
+  font-size: 1.6rem;
+  font-weight: 500;
 }
 
 footer {
