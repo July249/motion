@@ -7,11 +7,56 @@
   /* font-weight */
 }
 
+html {
+  font-size: 10px;
+  line-height: 1.2;
+}
+
 body {
   width: 100%;
-  height: 100vh;
   max-width: 1000px;
   margin: 0 auto;
   /* temp */
   border: 1px solid blue;
+}
+
+header {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-clr);
+}
+
+header > h1 {
+  margin: 0 0 2rem;
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--button-clr);
+}
+
+header ul {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+header li + li {
+  margin-left: 0.6rem;
+}
+
+header button {
+  width: 10rem;
+  padding: 1.2rem;
+  background: var(--button-clr);
+  color: var(--text-clr);
+}
+
+main {
+  height: 100%;
+  margin-bottom: auto;
+}
+
+footer {
 }
