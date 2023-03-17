@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Motion</title>
   <link rel="stylesheet" href="./src/css/reset.css">
@@ -12,21 +11,21 @@
 </head>
 
 <body>
-  <header>
-    <h1>Motion</h1>
-    <nav>
-      <ul>
-        <li><button>IMAGE</button></li>
-        <li><button>VIDEO</button></li>
-        <li><button>NOTE</button></li>
-        <li><button>TODO</button></li>
+  <div id="app">
+    <header class="banner">
+      <h1 class="banner__title">Motion</h1>
+      <ul class="control-pannel">
+        <li><button id="new-image" class="create-button">IMAGE</button></li>
+        <li><button id="new-video" class="create-button">VIDEO</button></li>
+        <li><button id="new-note" class="create-button">NOTE</button></li>
+        <li><button id="new-todo" class="create-button">TODO</button></li>
       </ul>
-    </nav>
-  </header>
-  <div id="app"></div>
-  <footer>
-    <p>&copy; Copyright by Jibro. All rights reserved.</p>
-  </footer>
+    </header>
+    <main class="document"></main>
+    <footer class="footer">
+      <p>&copy; Copyright by Jibro. All rights reserved.</p>
+    </footer>
+  </div>
 </body>
 
 </html>
