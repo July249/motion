@@ -1,20 +1,12 @@
-interface PageLayout {
-  app: HTMLDivElement;
-}
-
-export default class Page implements PageLayout {
-  app: HTMLDivElement;
-
-  static instance: Page = new Page();
-
-  private constructor() {
-    this.app = document.getElementById('app') as HTMLDivElement;
+export class PageComponent {
+  private element: HTMLUListElement;
+  constructor() {
+    this.element = document.createElement('ul');
+    this.element.setAttribute('class', 'page');
+    this.element.textContent = 'This is PageComponent';
   }
 
-  render() {
-    const p = document.createElement('p') as HTMLParagraphElement;
-    p.textContent = 'This is PageComponent';
-
-    this.app.append(p);
+  attachTo(parent: HTMLElement, position: InsertPosition = 'afterbegin') {
+    parent.insertAdjacentElement(position, this.element);
   }
 }
