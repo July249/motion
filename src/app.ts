@@ -1,3 +1,5 @@
+import { TodoComponent } from './components/page/item/todo';
+import { NoteComponent } from './components/page/item/note';
 import { ImageComponent } from './components/page/item/image';
 import { PageComponent } from './components/page/page.js';
 
@@ -13,6 +15,12 @@ class App {
       'https://picsum.photos/600/300'
     );
     image.attachTo(appRoot, 'beforeend');
+
+    const note = new NoteComponent('Note Title', 'Note Body');
+    note.attachTo(appRoot, 'beforeend');
+
+    const todo = new TodoComponent('Todo Title', 'Todo Item', 1);
+    todo.attachTo(appRoot, 'beforeend');
   }
 }
 
