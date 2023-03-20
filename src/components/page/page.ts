@@ -4,10 +4,13 @@ export interface Composable {
   addChild(child: Component): void;
 }
 
+type OnClickListener = () => void;
+
 export class PageItemComponent
   extends BaseComponent<HTMLElement>
   implements Composable
 {
+  private closeListener?: OnClickListener;
   constructor() {
     super(`<li class='page-item'>
             <section class='page-item__body'></section>
@@ -15,6 +18,11 @@ export class PageItemComponent
               <button class='close'>&times;</button>
             </div>
           </li>`);
+
+    const closeBtn = this.element.querySelector('.close')! as HTMLButtonElement;
+    closeBtn.onclick = () => {
+      this.closeListener && this.closeListener();
+    };
   }
 
   addChild(child: Component) {
@@ -22,6 +30,10 @@ export class PageItemComponent
       '.page-item__controls'
     )! as HTMLElement;
     child.attachTo(container);
+  }
+
+  setOnCloseListener(listener: OnClickListener) {
+    this.closeListener = listener;
   }
 }
 
@@ -37,5 +49,8 @@ export class PageComponent
     const item = new PageItemComponent();
     item.addChild(section);
     item.attachTo(this.element, 'beforeend');
+    item.setOnCloseListener(() => {
+      item.removeFrom(this.element);
+    });
   }
 }
