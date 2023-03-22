@@ -5,6 +5,7 @@ import { NoteComponent } from './components/page/item/note';
 import { ImageComponent } from './components/page/item/image';
 import { PageComponent } from './components/page/page.js';
 import { VideoComponent } from './components/page/item/video';
+import { InputDialog } from './components/dialog/dialog';
 
 class App {
   private readonly page: Component & Composable;
@@ -30,6 +31,21 @@ class App {
       'https://www.youtube.com/embed/--mDcWPbzFs'
     );
     this.page.addChild(video);
+
+    const imageBtn = document.querySelector('#new-image')! as HTMLButtonElement;
+    imageBtn.addEventListener('click', () => {
+      const dialog = new InputDialog();
+
+      dialog.setOnCloseListener(() => {
+        dialog.removeFrom(document.body);
+      });
+      dialog.setOnSubmitListener(() => {
+        // Create section and add on page
+        dialog.removeFrom(document.body);
+      });
+
+      dialog.attachTo(document.body);
+    });
   }
 }
 
