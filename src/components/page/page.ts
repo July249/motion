@@ -35,7 +35,7 @@ export class PageItemComponent
 
   addChild(child: Component) {
     const container = this.element.querySelector(
-      '.page-item__controls'
+      '.page-item__body'
     )! as HTMLElement;
     child.attachTo(container);
   }
