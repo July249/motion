@@ -1,6 +1,10 @@
 import { BaseComponent } from '../../component';
+import { TextData } from '../dialog';
 
-export class TextSectionInput extends BaseComponent<HTMLElement> {
+export class TextSectionInput
+  extends BaseComponent<HTMLElement>
+  implements TextData
+{
   constructor() {
     super(`<div>
             <div class="form__container">
